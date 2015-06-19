@@ -5,6 +5,9 @@
     <title>@ViewBag.Title - My ASP.NET MVC Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
 </head>
 <body>
     <script>
@@ -28,13 +31,35 @@
     </script>
 
     <div id="wrapper">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!--Nhớ để hiển thị mobile tốt hơn-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a target="_top" href="@ViewBag.AppUrl@Url.Action("Index", "Home")" class="navbar-brand">Sinh nhật</a>
+                </div> <!-- /.navbar-header-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a target="_top" href="@ViewBag.AppUrl@Url.Action("Index", "Home")">Trang Chủ</a></li>
+                        <li><a href="@Url.Action("About", "Home")">Thông Tin Ứng Dụng</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search" action="@Url.Action("Search", "Home")" method="get">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="friendName" placeholder="Friend's name">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                </div>  <!-- /.navbar-collapse-->
+            </div> <!-- /.container-fluid-->
+        </nav>
         <header id="topHeader">
-            <h1>Hello</h1>
-            <span id="arrow"></span>
-            <h2>Modify this template to jump-start your Facebook application using ASP.NET MVC.</h2>
-            <p>
-                Learn more about <a href="http://go.microsoft.com/fwlink/?LinkId=301873" target="_blank">building Facebook apps using ASP.NET MVC</a>.
-            </p>
+            <h1>App sinh nhật</h1><br />
+            <h2>Tặng quà cho bạn</h2>
         </header>
         @RenderBody()
         <footer>
